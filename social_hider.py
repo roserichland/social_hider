@@ -11,7 +11,6 @@ def on_press(key, abortKey='esc'):
         k = key.char  # single-char keys
     except:
         k = key.name  # other keys
-
     print('pressed %s' % (k))
     if k == abortKey:
         print('end loop ...')
@@ -35,8 +34,6 @@ if __name__ == '__main__':
     abortKey = 't'
     listener = keyboard.Listener(on_press=on_press, abortKey=abortKey)
     listener.start()  # start to listen on a separate thread
-
     # start thread with loop
     Thread(target=loop_social, args=(), name='loop_social', daemon=True).start()
-
-    listener.join() # wait for abortKey
+    listener.join # wait for abortKey
